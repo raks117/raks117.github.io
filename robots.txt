@@ -1,0 +1,8 @@
+# robots.txt — S K Plastic Works
+# Allow all search engines to crawl the full site
+
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://skplasticworks.github.io/sitemap.xml
