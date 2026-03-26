@@ -3,7 +3,7 @@
 
   <!-- Home Page — highest priority -->
   <url>
-    <loc>https://skplasticworks.github.io/</loc>
+    <loc>https://raks117.github.io/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   <!-- About Us Page -->
   <url>
-    <loc>https://skplasticworks.github.io/about.html</loc>
+    <loc>https://raks117.github.io/about.html</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
@@ -19,7 +19,7 @@
 
   <!-- NutriCheck India — Ingredient Health Checker -->
   <url>
-    <loc>https://skplasticworks.github.io/ingredients.html</loc>
+    <loc>https://raks117.github.io/ingredients.html</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

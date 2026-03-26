@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Point crawlers to the sitemap
-Sitemap: https://skplasticworks.github.io/sitemap.xml
+Sitemap: https://raks117.github.io/sitemap.xml
