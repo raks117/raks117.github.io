@@ -1,0 +1,1176 @@
+{
+  "harmful": {
+    "tartrazine": {
+      "score": -15,
+      "category": "artificial_color",
+      "label": "Tartrazine (E102)",
+      "severity": "bad",
+      "fssai_status": "restricted",
+      "description": "Synthetic yellow dye linked to hyperactivity in children and allergic reactions",
+      "conditions": ["child_under_5", "nut_allergy"],
+      "condition_warnings": {
+        "child_under_5": "Linked to hyperactivity and behavioral issues in children",
+        "nut_allergy": "May trigger allergic reactions in sensitive individuals"
+      }
+    },
+    "sunset yellow": {
+      "score": -12,
+      "category": "artificial_color",
+      "label": "Sunset Yellow FCF (E110)",
+      "severity": "bad",
+      "description": "Synthetic orange-yellow dye associated with hyperactivity and allergic reactions",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "Associated with hyperactivity in children"
+      }
+    },
+    "allura red": {
+      "score": -12,
+      "category": "artificial_color",
+      "label": "Allura Red AC (E129)",
+      "severity": "bad",
+      "description": "Synthetic red dye that may cause hyperactivity and allergic reactions",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "May worsen hyperactivity in children"
+      }
+    },
+    "brilliant blue": {
+      "score": -8,
+      "category": "artificial_color",
+      "label": "Brilliant Blue FCF (E133)",
+      "severity": "moderate",
+      "description": "Synthetic blue dye with limited safety concerns but no nutritional value",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "Unnecessary additive in children's food"
+      }
+    },
+    "carmoisine": {
+      "score": -12,
+      "category": "artificial_color",
+      "label": "Carmoisine (E122)",
+      "severity": "bad",
+      "description": "Synthetic red dye linked to allergic reactions and hyperactivity",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "Linked to hyperactivity in children"
+      }
+    },
+    "ponceau 4r": {
+      "score": -12,
+      "category": "artificial_color",
+      "label": "Ponceau 4R (E124)",
+      "severity": "bad",
+      "description": "Synthetic red dye associated with allergic and intolerance reactions",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "May cause hyperactivity and attention problems"
+      }
+    },
+    "erythrosine": {
+      "score": -14,
+      "category": "artificial_color",
+      "label": "Erythrosine (E127)",
+      "severity": "bad",
+      "description": "Red dye that may affect thyroid function at high doses",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "May affect thyroid function during pregnancy",
+        "child_under_5": "Potential thyroid effects in developing children"
+      }
+    },
+    "caramel color": {
+      "score": -5,
+      "category": "artificial_color",
+      "label": "Caramel Color (E150)",
+      "severity": "moderate",
+      "description": "Some types (Class III/IV) may contain 4-MEI, a potentially carcinogenic compound",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "sodium benzoate": {
+      "score": -8,
+      "category": "preservative",
+      "label": "Sodium Benzoate (E211)",
+      "severity": "moderate",
+      "description": "Preservative that can form benzene (carcinogen) when combined with vitamin C",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "May contribute to hyperactivity when combined with artificial colors"
+      }
+    },
+    "potassium sorbate": {
+      "score": -3,
+      "category": "preservative",
+      "label": "Potassium Sorbate (E202)",
+      "severity": "moderate",
+      "description": "Generally safe preservative but may cause mild skin irritation in sensitive individuals",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "sodium nitrite": {
+      "score": -12,
+      "category": "preservative",
+      "label": "Sodium Nitrite (E250)",
+      "severity": "bad",
+      "description": "Used in processed meats; can form carcinogenic nitrosamines during cooking or digestion",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Nitrosamines may pose developmental risks",
+        "child_under_5": "Higher cancer risk with early-life exposure"
+      }
+    },
+    "sodium nitrate": {
+      "score": -10,
+      "category": "preservative",
+      "label": "Sodium Nitrate (E251)",
+      "severity": "bad",
+      "description": "Can convert to nitrites in the body and form carcinogenic compounds",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "May form compounds harmful during fetal development",
+        "child_under_5": "Avoid in young children's diets"
+      }
+    },
+    "bha": {
+      "score": -10,
+      "category": "preservative",
+      "label": "BHA - Butylated Hydroxyanisole (E320)",
+      "severity": "bad",
+      "description": "Antioxidant preservative classified as possibly carcinogenic by IARC",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Classified as possibly carcinogenic; avoid during pregnancy"
+      }
+    },
+    "bht": {
+      "score": -8,
+      "category": "preservative",
+      "label": "BHT - Butylated Hydroxytoluene (E321)",
+      "severity": "moderate",
+      "description": "Synthetic antioxidant with disputed safety data",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "tbhq": {
+      "score": -10,
+      "category": "preservative",
+      "label": "TBHQ - tert-Butylhydroquinone (E319)",
+      "severity": "bad",
+      "description": "Synthetic antioxidant that may cause nausea at high doses and has disputed long-term safety",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "potassium bromate": {
+      "score": -20,
+      "category": "flour_treatment",
+      "label": "Potassium Bromate (E924)",
+      "severity": "bad",
+      "fssai_status": "banned",
+      "description": "Flour improver banned in India by FSSAI due to cancer risk. Classified as possibly carcinogenic by IARC",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Banned carcinogen — should not be consumed",
+        "child_under_5": "Banned carcinogen — should not be consumed"
+      }
+    },
+    "brominated vegetable oil": {
+      "score": -18,
+      "category": "emulsifier",
+      "label": "Brominated Vegetable Oil (BVO)",
+      "severity": "bad",
+      "fssai_status": "banned",
+      "description": "Emulsifier banned in India. Bromine accumulates in the body and may cause neurological issues",
+      "conditions": ["pregnancy", "child_under_5", "kidney_disease"],
+      "condition_warnings": {
+        "pregnancy": "Bromine can cross the placental barrier",
+        "child_under_5": "Risk of bromine accumulation in developing bodies",
+        "kidney_disease": "Impaired bromine excretion in kidney disease"
+      }
+    },
+    "aspartame": {
+      "score": -7,
+      "category": "artificial_sweetener",
+      "label": "Aspartame (E951)",
+      "severity": "moderate",
+      "description": "Artificial sweetener classified as possibly carcinogenic by IARC in 2023",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Avoid artificial sweeteners during pregnancy as a precaution",
+        "child_under_5": "Not recommended for young children"
+      }
+    },
+    "sucralose": {
+      "score": -5,
+      "category": "artificial_sweetener",
+      "label": "Sucralose (E955)",
+      "severity": "moderate",
+      "description": "Artificial sweetener that may affect gut bacteria and insulin response",
+      "conditions": ["diabetes", "pregnancy"],
+      "condition_warnings": {
+        "diabetes": "May affect insulin sensitivity despite being calorie-free",
+        "pregnancy": "Limited safety data during pregnancy"
+      }
+    },
+    "acesulfame potassium": {
+      "score": -5,
+      "category": "artificial_sweetener",
+      "label": "Acesulfame K (E950)",
+      "severity": "moderate",
+      "description": "Artificial sweetener with limited long-term safety studies",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Crosses the placental barrier; limited safety data"
+      }
+    },
+    "saccharin": {
+      "score": -7,
+      "category": "artificial_sweetener",
+      "label": "Saccharin (E954)",
+      "severity": "moderate",
+      "description": "One of the oldest artificial sweeteners with past cancer concerns (later partially cleared)",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Crosses the placenta; best avoided during pregnancy"
+      }
+    },
+    "high fructose corn syrup": {
+      "score": -12,
+      "category": "sugar",
+      "label": "High Fructose Corn Syrup",
+      "severity": "bad",
+      "description": "Concentrated sweetener linked to obesity, insulin resistance, and fatty liver disease",
+      "conditions": ["diabetes", "obesity", "heart_disease"],
+      "condition_warnings": {
+        "diabetes": "Causes rapid blood sugar spikes and worsens insulin resistance",
+        "obesity": "High calorie density with no nutritional value",
+        "heart_disease": "Linked to elevated triglycerides"
+      }
+    },
+    "corn syrup": {
+      "score": -8,
+      "category": "sugar",
+      "label": "Corn Syrup",
+      "severity": "moderate",
+      "description": "Refined sugar with high glycemic index",
+      "conditions": ["diabetes", "obesity"],
+      "condition_warnings": {
+        "diabetes": "High glycemic index can spike blood sugar",
+        "obesity": "Empty calories contributing to weight gain"
+      }
+    },
+    "invert sugar": {
+      "score": -6,
+      "category": "sugar",
+      "label": "Invert Sugar",
+      "severity": "moderate",
+      "description": "Processed sugar mixture that is rapidly absorbed",
+      "conditions": ["diabetes", "obesity"],
+      "condition_warnings": {
+        "diabetes": "Rapidly absorbed, causing blood sugar spikes",
+        "obesity": "Empty calories contributing to weight gain"
+      }
+    },
+    "dextrose": {
+      "score": -5,
+      "category": "sugar",
+      "label": "Dextrose",
+      "severity": "moderate",
+      "description": "Pure glucose with very high glycemic index",
+      "conditions": ["diabetes"],
+      "condition_warnings": {
+        "diabetes": "Pure glucose — highest possible glycemic impact"
+      }
+    },
+    "maltodextrin": {
+      "score": -6,
+      "category": "sugar",
+      "label": "Maltodextrin",
+      "severity": "moderate",
+      "description": "Highly processed starch with a glycemic index higher than table sugar",
+      "conditions": ["diabetes"],
+      "condition_warnings": {
+        "diabetes": "Glycemic index of 85-105, higher than table sugar"
+      }
+    },
+    "sugar": {
+      "score": -4,
+      "category": "sugar",
+      "label": "Sugar (Sucrose)",
+      "severity": "moderate",
+      "description": "Refined sugar — excessive consumption linked to obesity, diabetes, and tooth decay",
+      "conditions": ["diabetes", "obesity"],
+      "condition_warnings": {
+        "diabetes": "Raises blood sugar levels; consume in limited quantities",
+        "obesity": "Empty calories that contribute to weight gain"
+      }
+    },
+    "partially hydrogenated": {
+      "score": -20,
+      "category": "trans_fat",
+      "label": "Partially Hydrogenated Oil (Trans Fat)",
+      "severity": "bad",
+      "fssai_status": "restricted",
+      "description": "Contains trans fats which significantly increase heart disease risk. FSSAI limits trans fat to 2% in oils",
+      "conditions": ["heart_disease", "diabetes", "obesity", "hypertension"],
+      "condition_warnings": {
+        "heart_disease": "Trans fats are the most harmful fat for heart health",
+        "diabetes": "Worsens insulin resistance",
+        "obesity": "Promotes abdominal fat accumulation",
+        "hypertension": "Contributes to arterial stiffness"
+      }
+    },
+    "hydrogenated vegetable oil": {
+      "score": -15,
+      "category": "trans_fat",
+      "label": "Hydrogenated Vegetable Oil",
+      "severity": "bad",
+      "description": "May contain trans fats depending on degree of hydrogenation",
+      "conditions": ["heart_disease", "diabetes"],
+      "condition_warnings": {
+        "heart_disease": "May contain hidden trans fats",
+        "diabetes": "Can worsen insulin resistance"
+      }
+    },
+    "interesterified fat": {
+      "score": -8,
+      "category": "fat",
+      "label": "Interesterified Fat",
+      "severity": "moderate",
+      "description": "Processed fat used as trans fat replacement; limited long-term safety data",
+      "conditions": ["heart_disease"],
+      "condition_warnings": {
+        "heart_disease": "May affect blood lipid profiles similar to trans fats"
+      }
+    },
+    "palm oil": {
+      "score": -5,
+      "category": "fat",
+      "label": "Palm Oil",
+      "severity": "moderate",
+      "description": "High in saturated fat; also raises environmental concerns about deforestation",
+      "conditions": ["heart_disease", "obesity"],
+      "condition_warnings": {
+        "heart_disease": "High saturated fat content raises LDL cholesterol",
+        "obesity": "Calorie-dense fat"
+      }
+    },
+    "palm kernel oil": {
+      "score": -7,
+      "category": "fat",
+      "label": "Palm Kernel Oil",
+      "severity": "moderate",
+      "description": "Very high in saturated fat (over 80%), even higher than palm oil",
+      "conditions": ["heart_disease"],
+      "condition_warnings": {
+        "heart_disease": "Extremely high saturated fat content"
+      }
+    },
+    "monosodium glutamate": {
+      "score": -5,
+      "category": "flavor_enhancer",
+      "label": "MSG - Monosodium Glutamate (E621)",
+      "severity": "moderate",
+      "fssai_status": "permitted_with_limits",
+      "description": "Flavor enhancer permitted by FSSAI within limits. Some people report sensitivity symptoms",
+      "conditions": ["hypertension"],
+      "condition_warnings": {
+        "hypertension": "Contains sodium which may elevate blood pressure"
+      }
+    },
+    "disodium guanylate": {
+      "score": -3,
+      "category": "flavor_enhancer",
+      "label": "Disodium Guanylate (E627)",
+      "severity": "moderate",
+      "description": "Flavor enhancer often used with MSG; avoid if gout-prone as it contains purines",
+      "conditions": ["kidney_disease"],
+      "condition_warnings": {
+        "kidney_disease": "Contains purines which can elevate uric acid levels"
+      }
+    },
+    "disodium inosinate": {
+      "score": -3,
+      "category": "flavor_enhancer",
+      "label": "Disodium Inosinate (E631)",
+      "severity": "moderate",
+      "description": "Purine-containing flavor enhancer; avoid with gout or uric acid conditions",
+      "conditions": ["kidney_disease"],
+      "condition_warnings": {
+        "kidney_disease": "Contains purines; may worsen kidney conditions"
+      }
+    },
+    "salt": {
+      "score": -3,
+      "category": "mineral",
+      "label": "Salt (Sodium Chloride)",
+      "severity": "moderate",
+      "description": "Excessive salt intake linked to high blood pressure and heart disease",
+      "conditions": ["hypertension", "heart_disease", "kidney_disease"],
+      "condition_warnings": {
+        "hypertension": "Directly raises blood pressure",
+        "heart_disease": "Excess sodium worsens cardiovascular risk",
+        "kidney_disease": "Impaired kidneys cannot excrete excess sodium"
+      }
+    },
+    "sodium": {
+      "score": -3,
+      "category": "mineral",
+      "label": "Sodium / Salt",
+      "severity": "moderate",
+      "description": "Excessive sodium intake linked to high blood pressure and heart disease",
+      "conditions": ["hypertension", "heart_disease", "kidney_disease"],
+      "condition_warnings": {
+        "hypertension": "Directly raises blood pressure",
+        "heart_disease": "Excess sodium worsens cardiovascular risk",
+        "kidney_disease": "Impaired kidneys cannot excrete excess sodium"
+      }
+    },
+    "invert syrup": {
+      "score": -6,
+      "category": "sugar",
+      "label": "Invert Syrup / Invert Sugar",
+      "severity": "moderate",
+      "description": "Processed sugar mixture that is rapidly absorbed into the bloodstream",
+      "conditions": ["diabetes", "obesity"],
+      "condition_warnings": {
+        "diabetes": "Rapidly absorbed, causing blood sugar spikes",
+        "obesity": "Empty calories contributing to weight gain"
+      }
+    },
+    "polysorbate 80": {
+      "score": -7,
+      "category": "emulsifier",
+      "label": "Polysorbate 80 (E433)",
+      "severity": "moderate",
+      "description": "Emulsifier that may affect gut barrier function and promote inflammation",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "carboxymethyl cellulose": {
+      "score": -5,
+      "category": "emulsifier",
+      "label": "Carboxymethyl Cellulose (E466)",
+      "severity": "moderate",
+      "description": "Emulsifier linked to gut inflammation in some animal studies",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "carrageenan": {
+      "score": -6,
+      "category": "thickener",
+      "label": "Carrageenan (E407)",
+      "severity": "moderate",
+      "description": "Seaweed-derived thickener that may cause gut inflammation in sensitive individuals",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "phosphoric acid": {
+      "score": -7,
+      "category": "acidity_regulator",
+      "label": "Phosphoric Acid (E338)",
+      "severity": "moderate",
+      "description": "Common in colas; may affect calcium absorption and bone health",
+      "conditions": ["kidney_disease", "child_under_5"],
+      "condition_warnings": {
+        "kidney_disease": "Excess phosphate strains kidneys",
+        "child_under_5": "May interfere with calcium absorption during bone development"
+      }
+    },
+    "caffeine": {
+      "score": -3,
+      "category": "stimulant",
+      "label": "Caffeine",
+      "severity": "moderate",
+      "description": "Stimulant that is safe in moderate amounts for most adults",
+      "conditions": ["pregnancy", "child_under_5", "hypertension"],
+      "condition_warnings": {
+        "pregnancy": "Limit to 200mg/day; excess linked to low birth weight",
+        "child_under_5": "Not recommended for young children",
+        "hypertension": "Can temporarily raise blood pressure"
+      }
+    },
+    "maida": {
+      "score": -6,
+      "category": "refined_grain",
+      "label": "Maida (Refined Wheat Flour)",
+      "severity": "moderate",
+      "description": "Highly refined flour stripped of fiber and nutrients; high glycemic index",
+      "conditions": ["diabetes", "obesity"],
+      "condition_warnings": {
+        "diabetes": "High glycemic index causes blood sugar spikes",
+        "obesity": "Low satiety, promotes overeating"
+      }
+    },
+    "refined wheat flour": {
+      "score": -6,
+      "category": "refined_grain",
+      "label": "Refined Wheat Flour",
+      "severity": "moderate",
+      "description": "Stripped of bran and germ; low in fiber and nutrients",
+      "conditions": ["diabetes", "obesity", "gluten_sensitivity"],
+      "condition_warnings": {
+        "diabetes": "High glycemic index",
+        "obesity": "Low fiber means low satiety",
+        "gluten_sensitivity": "Contains gluten — avoid if sensitive"
+      }
+    },
+    "wheat flour": {
+      "score": -2,
+      "category": "grain",
+      "label": "Wheat Flour",
+      "severity": "moderate",
+      "description": "May be refined unless specified as whole wheat",
+      "conditions": ["gluten_sensitivity"],
+      "condition_warnings": {
+        "gluten_sensitivity": "Contains gluten — avoid if sensitive or celiac"
+      }
+    },
+    "gluten": {
+      "score": -2,
+      "category": "protein",
+      "label": "Gluten",
+      "severity": "moderate",
+      "description": "Wheat protein that must be avoided by those with celiac disease or gluten sensitivity",
+      "conditions": ["gluten_sensitivity"],
+      "condition_warnings": {
+        "gluten_sensitivity": "Must be strictly avoided in celiac disease"
+      }
+    },
+    "milk solids": {
+      "score": -1,
+      "category": "dairy",
+      "label": "Milk Solids",
+      "severity": "moderate",
+      "description": "Dairy derivative containing lactose",
+      "conditions": ["lactose_intolerance"],
+      "condition_warnings": {
+        "lactose_intolerance": "Contains lactose — may cause digestive discomfort"
+      }
+    },
+    "whey": {
+      "score": -1,
+      "category": "dairy",
+      "label": "Whey",
+      "severity": "moderate",
+      "description": "Dairy by-product containing lactose and milk proteins",
+      "conditions": ["lactose_intolerance"],
+      "condition_warnings": {
+        "lactose_intolerance": "Contains lactose"
+      }
+    },
+    "casein": {
+      "score": -1,
+      "category": "dairy",
+      "label": "Casein",
+      "severity": "moderate",
+      "description": "Milk protein that must be avoided by those with dairy allergies",
+      "conditions": ["lactose_intolerance"],
+      "condition_warnings": {
+        "lactose_intolerance": "Dairy protein — may cause issues for dairy-sensitive individuals"
+      }
+    },
+    "lactose": {
+      "score": -1,
+      "category": "dairy",
+      "label": "Lactose",
+      "severity": "moderate",
+      "description": "Milk sugar that cannot be digested by lactose-intolerant individuals",
+      "conditions": ["lactose_intolerance"],
+      "condition_warnings": {
+        "lactose_intolerance": "Primary trigger for lactose intolerance symptoms"
+      }
+    },
+    "peanut": {
+      "score": 0,
+      "category": "allergen",
+      "label": "Peanut",
+      "severity": "moderate",
+      "description": "Common allergen that can cause severe anaphylactic reactions",
+      "conditions": ["nut_allergy"],
+      "condition_warnings": {
+        "nut_allergy": "Severe allergen — can cause anaphylaxis in allergic individuals"
+      }
+    },
+    "groundnut": {
+      "score": 0,
+      "category": "allergen",
+      "label": "Groundnut (Peanut)",
+      "severity": "moderate",
+      "description": "Same as peanut — common allergen in Indian products",
+      "conditions": ["nut_allergy"],
+      "condition_warnings": {
+        "nut_allergy": "Severe allergen — can cause anaphylaxis"
+      }
+    },
+    "tree nut": {
+      "score": 0,
+      "category": "allergen",
+      "label": "Tree Nuts",
+      "severity": "moderate",
+      "description": "Includes almonds, cashews, walnuts — common allergens",
+      "conditions": ["nut_allergy"],
+      "condition_warnings": {
+        "nut_allergy": "Can cause severe allergic reactions"
+      }
+    },
+    "cashew": {
+      "score": 0,
+      "category": "allergen",
+      "label": "Cashew",
+      "severity": "moderate",
+      "description": "Tree nut allergen commonly used in Indian foods",
+      "conditions": ["nut_allergy"],
+      "condition_warnings": {
+        "nut_allergy": "Tree nut allergen — avoid if allergic"
+      }
+    },
+    "almond": {
+      "score": 0,
+      "category": "allergen",
+      "label": "Almond",
+      "severity": "moderate",
+      "description": "Tree nut allergen",
+      "conditions": ["nut_allergy"],
+      "condition_warnings": {
+        "nut_allergy": "Tree nut allergen — avoid if allergic"
+      }
+    },
+    "sodium lauryl sulfate": {
+      "score": -10,
+      "category": "surfactant",
+      "label": "SLS - Sodium Lauryl Sulfate",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Harsh surfactant that strips natural oils and can cause skin irritation and dryness",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "sodium laureth sulfate": {
+      "score": -8,
+      "category": "surfactant",
+      "label": "SLES - Sodium Laureth Sulfate",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Milder than SLS but may be contaminated with 1,4-dioxane during manufacturing",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "methylparaben": {
+      "score": -12,
+      "category": "paraben",
+      "label": "Methylparaben",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Preservative with weak estrogenic activity; concerns about endocrine disruption",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Endocrine disruptor — avoid during pregnancy",
+        "child_under_5": "Developing endocrine system may be more vulnerable"
+      }
+    },
+    "propylparaben": {
+      "score": -14,
+      "category": "paraben",
+      "label": "Propylparaben",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Stronger estrogenic activity than methylparaben; banned in some EU cosmetics for children",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Endocrine disruptor with stronger estrogenic activity",
+        "child_under_5": "Banned in EU for children's cosmetics under 3 years"
+      }
+    },
+    "butylparaben": {
+      "score": -14,
+      "category": "paraben",
+      "label": "Butylparaben",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Paraben with significant estrogenic activity; restricted in EU cosmetics",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Strong endocrine disruptor",
+        "child_under_5": "Restricted in EU for children's products"
+      }
+    },
+    "formaldehyde": {
+      "score": -18,
+      "category": "preservative",
+      "label": "Formaldehyde",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "fssai_status": "banned",
+      "description": "Known carcinogen used in some hair straightening treatments and nail products",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Known carcinogen — strictly avoid",
+        "child_under_5": "Known carcinogen — never use on children"
+      }
+    },
+    "dmdm hydantoin": {
+      "score": -12,
+      "category": "formaldehyde_releaser",
+      "label": "DMDM Hydantoin",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Formaldehyde-releasing preservative; slowly releases formaldehyde over time",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Releases formaldehyde — avoid during pregnancy"
+      }
+    },
+    "imidazolidinyl urea": {
+      "score": -10,
+      "category": "formaldehyde_releaser",
+      "label": "Imidazolidinyl Urea",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Formaldehyde-releasing preservative commonly used in cosmetics",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Releases formaldehyde — avoid during pregnancy"
+      }
+    },
+    "diazolidinyl urea": {
+      "score": -10,
+      "category": "formaldehyde_releaser",
+      "label": "Diazolidinyl Urea",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Formaldehyde-releasing preservative; stronger releaser than imidazolidinyl urea",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Releases formaldehyde — avoid during pregnancy"
+      }
+    },
+    "triclosan": {
+      "score": -15,
+      "category": "antimicrobial",
+      "label": "Triclosan",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Antimicrobial agent linked to hormone disruption and antibiotic resistance",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Endocrine disruptor that crosses the placenta",
+        "child_under_5": "May affect developing hormonal system"
+      }
+    },
+    "oxybenzone": {
+      "score": -10,
+      "category": "sunscreen",
+      "label": "Oxybenzone",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Chemical sunscreen filter with endocrine-disrupting properties; absorbed through skin",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Endocrine disruptor absorbed through skin",
+        "child_under_5": "Use mineral sunscreens instead for children"
+      }
+    },
+    "phthalate": {
+      "score": -12,
+      "category": "plasticizer",
+      "label": "Phthalates",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Plasticizer often hidden in 'fragrance'; linked to reproductive harm",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Linked to reproductive developmental harm",
+        "child_under_5": "May affect reproductive development"
+      }
+    },
+    "mineral oil": {
+      "score": -5,
+      "category": "oil",
+      "label": "Mineral Oil (Paraffinum Liquidum)",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Petroleum-derived oil that can clog pores and prevent skin from breathing",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "petrolatum": {
+      "score": -4,
+      "category": "oil",
+      "label": "Petrolatum (Petroleum Jelly)",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Petroleum by-product; may contain impurities if not fully refined",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "silicone": {
+      "score": -3,
+      "category": "coating",
+      "label": "Silicones (Dimethicone)",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Creates a coating on skin/hair that can trap dirt and cause buildup",
+      "conditions": [],
+      "condition_warnings": {}
+    },
+    "synthetic fragrance": {
+      "score": -8,
+      "category": "fragrance",
+      "label": "Synthetic Fragrance/Parfum",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Undisclosed mix of chemicals; may contain phthalates, allergens, and sensitizers",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "May contain undisclosed endocrine disruptors",
+        "child_under_5": "Common cause of skin reactions in children"
+      }
+    },
+    "fragrance": {
+      "score": -6,
+      "category": "fragrance",
+      "label": "Fragrance/Parfum",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Umbrella term for undisclosed scent chemicals; potential allergens",
+      "conditions": ["child_under_5"],
+      "condition_warnings": {
+        "child_under_5": "May cause skin irritation in children"
+      }
+    },
+    "parfum": {
+      "score": -6,
+      "category": "fragrance",
+      "label": "Parfum (Fragrance)",
+      "severity": "moderate",
+      "product_type": "personal_care",
+      "description": "Umbrella term for undisclosed scent chemicals; potential allergens",
+      "conditions": ["child_under_5", "pregnancy"],
+      "condition_warnings": {
+        "child_under_5": "May cause skin irritation in children",
+        "pregnancy": "May contain undisclosed endocrine disruptors"
+      }
+    },
+    "toluene": {
+      "score": -15,
+      "category": "solvent",
+      "label": "Toluene",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "description": "Solvent found in nail polish; neurotoxic and harmful to reproductive health",
+      "conditions": ["pregnancy"],
+      "condition_warnings": {
+        "pregnancy": "Neurotoxic and linked to birth defects"
+      }
+    },
+    "lead acetate": {
+      "score": -20,
+      "category": "heavy_metal",
+      "label": "Lead Acetate",
+      "severity": "bad",
+      "product_type": "personal_care",
+      "fssai_status": "banned",
+      "description": "Toxic heavy metal compound formerly used in some hair dyes; banned in most countries",
+      "conditions": ["pregnancy", "child_under_5"],
+      "condition_warnings": {
+        "pregnancy": "Lead causes severe birth defects and developmental harm",
+        "child_under_5": "Lead exposure causes irreversible brain damage in children"
+      }
+    }
+  },
+  "positive": {
+    "organic": {
+      "score": 5,
+      "label": "Organic",
+      "severity": "good",
+      "description": "Produced without synthetic pesticides, fertilizers, or GMOs"
+    },
+    "whole wheat": {
+      "score": 3,
+      "label": "Whole Wheat Flour (Atta)",
+      "severity": "good",
+      "description": "Retains bran and germ; rich in fiber, vitamins, and minerals"
+    },
+    "whole grain": {
+      "score": 3,
+      "label": "Whole Grain",
+      "severity": "good",
+      "description": "Contains all parts of the grain; high fiber and nutrient content"
+    },
+    "oats": {
+      "score": 4,
+      "label": "Oats",
+      "severity": "good",
+      "description": "Rich in beta-glucan fiber that helps lower cholesterol"
+    },
+    "ragi": {
+      "score": 4,
+      "label": "Ragi (Finger Millet)",
+      "severity": "good",
+      "description": "Indian superfood rich in calcium, iron, and fiber"
+    },
+    "jowar": {
+      "score": 4,
+      "label": "Jowar (Sorghum)",
+      "severity": "good",
+      "description": "Gluten-free millet high in fiber, protein, and antioxidants"
+    },
+    "bajra": {
+      "score": 3,
+      "label": "Bajra (Pearl Millet)",
+      "severity": "good",
+      "description": "Rich in iron and zinc; traditional Indian grain"
+    },
+    "turmeric": {
+      "score": 3,
+      "label": "Turmeric (Haldi)",
+      "severity": "good",
+      "description": "Contains curcumin with powerful anti-inflammatory and antioxidant properties"
+    },
+    "ginger": {
+      "score": 2,
+      "label": "Ginger",
+      "severity": "good",
+      "description": "Anti-inflammatory and digestive aid"
+    },
+    "cumin": {
+      "score": 2,
+      "label": "Cumin (Jeera)",
+      "severity": "good",
+      "description": "Rich in iron and aids digestion"
+    },
+    "black pepper": {
+      "score": 2,
+      "label": "Black Pepper (Kali Mirch)",
+      "severity": "good",
+      "description": "Enhances nutrient absorption; contains piperine with antioxidant properties"
+    },
+    "cinnamon": {
+      "score": 2,
+      "label": "Cinnamon (Dalchini)",
+      "severity": "good",
+      "description": "May help regulate blood sugar and has anti-inflammatory properties"
+    },
+    "coconut oil": {
+      "score": 2,
+      "label": "Coconut Oil",
+      "severity": "good",
+      "description": "Contains medium-chain triglycerides; traditional cooking oil in South India"
+    },
+    "olive oil": {
+      "score": 3,
+      "label": "Olive Oil",
+      "severity": "good",
+      "description": "Rich in monounsaturated fats and polyphenols; heart-healthy"
+    },
+    "mustard oil": {
+      "score": 2,
+      "label": "Mustard Oil",
+      "severity": "good",
+      "description": "Rich in omega-3 fatty acids; traditional North Indian cooking oil"
+    },
+    "groundnut oil": {
+      "score": 2,
+      "label": "Groundnut Oil",
+      "severity": "good",
+      "description": "Good source of monounsaturated fats and vitamin E"
+    },
+    "flaxseed": {
+      "score": 4,
+      "label": "Flaxseed (Alsi)",
+      "severity": "good",
+      "description": "Excellent source of omega-3 ALA, fiber, and lignans"
+    },
+    "chia seeds": {
+      "score": 4,
+      "label": "Chia Seeds",
+      "severity": "good",
+      "description": "High in omega-3, fiber, protein, and minerals"
+    },
+    "jaggery": {
+      "score": 2,
+      "label": "Jaggery (Gur)",
+      "severity": "good",
+      "description": "Unrefined sugar retaining minerals like iron and potassium"
+    },
+    "honey": {
+      "score": 2,
+      "label": "Honey",
+      "severity": "good",
+      "description": "Natural sweetener with antibacterial and antioxidant properties"
+    },
+    "probiotics": {
+      "score": 4,
+      "label": "Probiotics",
+      "severity": "good",
+      "description": "Beneficial bacteria that support gut health and immunity"
+    },
+    "curd culture": {
+      "score": 3,
+      "label": "Curd Culture (Dahi)",
+      "severity": "good",
+      "description": "Natural probiotic; traditional Indian fermented food"
+    },
+    "green tea extract": {
+      "score": 3,
+      "label": "Green Tea Extract",
+      "severity": "good",
+      "description": "Rich in catechins with antioxidant and metabolism-boosting properties"
+    },
+    "aloe vera": {
+      "score": 3,
+      "label": "Aloe Vera",
+      "severity": "good",
+      "description": "Soothing and moisturizing; beneficial for skin and digestion"
+    },
+    "neem": {
+      "score": 3,
+      "label": "Neem",
+      "severity": "good",
+      "description": "Traditional antibacterial and antifungal ingredient in Indian personal care"
+    },
+    "tulsi": {
+      "score": 3,
+      "label": "Tulsi (Holy Basil)",
+      "severity": "good",
+      "description": "Adaptogenic herb with anti-stress and immune-boosting properties"
+    },
+    "amla": {
+      "score": 4,
+      "label": "Amla (Indian Gooseberry)",
+      "severity": "good",
+      "description": "One of the richest sources of vitamin C; traditional Ayurvedic ingredient"
+    },
+    "ashwagandha": {
+      "score": 3,
+      "label": "Ashwagandha",
+      "severity": "good",
+      "description": "Ayurvedic adaptogen known for stress relief and vitality"
+    },
+    "vitamin c": {
+      "score": 2,
+      "label": "Vitamin C (Ascorbic Acid)",
+      "severity": "good",
+      "description": "Essential antioxidant vitamin supporting immunity and skin health"
+    },
+    "vitamin e": {
+      "score": 2,
+      "label": "Vitamin E (Tocopherol)",
+      "severity": "good",
+      "description": "Antioxidant that protects cells and supports skin health"
+    },
+    "iron": {
+      "score": 2,
+      "label": "Iron",
+      "severity": "good",
+      "description": "Essential mineral for blood health; common deficiency in India"
+    },
+    "calcium": {
+      "score": 2,
+      "label": "Calcium",
+      "severity": "good",
+      "description": "Essential for bone and teeth health"
+    }
+  },
+  "e_numbers": {
+    "E102": "tartrazine",
+    "E104": "quinoline yellow",
+    "E110": "sunset yellow",
+    "E122": "carmoisine",
+    "E124": "ponceau 4r",
+    "E127": "erythrosine",
+    "E129": "allura red",
+    "E131": "patent blue v",
+    "E132": "indigo carmine",
+    "E133": "brilliant blue",
+    "E150": "caramel color",
+    "E150a": "caramel color",
+    "E150b": "caramel color",
+    "E150c": "caramel color",
+    "E150d": "caramel color",
+    "E202": "potassium sorbate",
+    "E211": "sodium benzoate",
+    "E220": "sulphur dioxide",
+    "E250": "sodium nitrite",
+    "E251": "sodium nitrate",
+    "E319": "tbhq",
+    "E320": "bha",
+    "E321": "bht",
+    "E338": "phosphoric acid",
+    "E407": "carrageenan",
+    "E433": "polysorbate 80",
+    "E466": "carboxymethyl cellulose",
+    "E621": "monosodium glutamate",
+    "E627": "disodium guanylate",
+    "E631": "disodium inosinate",
+    "E924": "potassium bromate",
+    "E950": "acesulfame potassium",
+    "E951": "aspartame",
+    "E954": "saccharin",
+    "E955": "sucralose"
+  },
+  "fssai_banned": [
+    "potassium bromate",
+    "brominated vegetable oil",
+    "formaldehyde",
+    "lead acetate",
+    "rhodamine b",
+    "metanil yellow",
+    "malachite green",
+    "sudan dyes"
+  ],
+  "conditions": {
+    "diabetes": {
+      "label": "Diabetes",
+      "description": "Flags high-sugar, high-GI ingredients and artificial sweeteners",
+      "icon": "🩸"
+    },
+    "hypertension": {
+      "label": "High Blood Pressure",
+      "description": "Flags high-sodium ingredients and stimulants",
+      "icon": "❤️"
+    },
+    "heart_disease": {
+      "label": "Heart Disease",
+      "description": "Flags trans fats, saturated fats, and excess sodium",
+      "icon": "🫀"
+    },
+    "pregnancy": {
+      "label": "Pregnancy",
+      "description": "Flags ingredients with developmental risks or limited safety data",
+      "icon": "🤰"
+    },
+    "child_under_5": {
+      "label": "Child Under 5",
+      "description": "Flags artificial colors, sweeteners, and harmful chemicals",
+      "icon": "👶"
+    },
+    "lactose_intolerance": {
+      "label": "Lactose Intolerance",
+      "description": "Flags dairy-derived ingredients containing lactose",
+      "icon": "🥛"
+    },
+    "gluten_sensitivity": {
+      "label": "Gluten Sensitivity / Celiac",
+      "description": "Flags wheat, barley, rye, and gluten-containing ingredients",
+      "icon": "🌾"
+    },
+    "nut_allergy": {
+      "label": "Nut Allergy",
+      "description": "Flags peanuts, tree nuts, and nut-derived ingredients",
+      "icon": "🥜"
+    },
+    "obesity": {
+      "label": "Weight Management",
+      "description": "Flags high-calorie, high-fat, and high-sugar ingredients",
+      "icon": "⚖️"
+    },
+    "kidney_disease": {
+      "label": "Kidney Disease",
+      "description": "Flags high-sodium, high-phosphate, and high-purine ingredients",
+      "icon": "🫘"
+    }
+  }
+}

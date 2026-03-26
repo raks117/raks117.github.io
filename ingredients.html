@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriCheck India — Personalized Family Ingredient Health Checker</title>
+  <meta name="description" content="Check the health score of any food or personal care product. Personalized alerts for your family's health conditions. FSSAI-aware ingredient analysis.">
+  <meta name="keywords" content="ingredient checker, health score, FSSAI, food scanner, barcode scanner, India, NutriCheck">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Reset & Variables ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:       #16A34A;
+      --green-dark:  #15803D;
+      --green-light: #DCFCE7;
+      --emerald:     #059669;
+      --lime:        #8BC34A;
+      --orange:      #F59E0B;
+      --orange-light:#FEF3C7;
+      --red:         #DC2626;
+      --red-light:   #FEE2E2;
+      --dark:        #0F172A;
+      --text:        #1E293B;
+      --text-light:  #64748B;
+      --border:      #E2E8F0;
+      --bg:          #F8FAFC;
+      --white:       #FFFFFF;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.1);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,0.14);
+      --radius:      10px;
+      --radius-lg:   16px;
+      --font-body:   'Inter', sans-serif;
+      --font-head:   'Poppins', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.6; min-height: 100vh; }
+
+    /* ---------- Layout ---------- */
+    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      background: linear-gradient(135deg, #064E3B 0%, #065F46 40%, #16A34A 100%);
+      padding: 48px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(22,163,74,0.3) 0%, transparent 60%);
+    }
+    .header-content { position: relative; z-index: 1; text-align: center; }
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #86EFAC;
+      background: rgba(22,163,74,0.25);
+      border: 1px solid rgba(134,239,172,0.3);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .site-header h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+    .site-header p {
+      color: rgba(255,255,255,0.8);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      max-width: 600px;
+      margin: 0 auto 16px;
+    }
+    .disclaimer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.2);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* ---------- Section ---------- */
+    .section { padding: 32px 0; }
+
+    /* ---------- Card ---------- */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ---------- Family Profile ---------- */
+    .profile-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .profile-toggle .arrow {
+      transition: transform 0.3s;
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+    .profile-toggle.open .arrow { transform: rotate(180deg); }
+    .profile-body { display: none; margin-top: 16px; }
+    .profile-body.open { display: block; }
+    .conditions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .condition-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .condition-item:hover { border-color: var(--green); background: var(--green-light); }
+    .condition-item.active { border-color: var(--green); background: var(--green-light); }
+    .condition-item input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: var(--green);
+      width: 16px;
+      height: 16px;
+    }
+    .condition-label { font-weight: 500; font-size: 0.88rem; }
+    .condition-desc { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+    .active-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      border: 1px solid rgba(22,163,74,0.2);
+    }
+    .chip .remove {
+      cursor: pointer;
+      font-weight: 700;
+      margin-left: 2px;
+      opacity: 0.6;
+    }
+    .chip .remove:hover { opacity: 1; }
+
+    /* ---------- Tabs ---------- */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--green); border-bottom-color: var(--green); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ---------- Input Area ---------- */
+    .ingredient-input {
+      width: 100%;
+      min-height: 120px;
+      padding: 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      resize: vertical;
+      transition: border-color 0.2s;
+      line-height: 1.6;
+    }
+    .ingredient-input:focus { outline: none; border-color: var(--green); }
+    .ingredient-input::placeholder { color: #94A3B8; }
+
+    .product-type-toggle {
+      display: flex;
+      gap: 12px;
+      margin: 14px 0;
+    }
+    .product-type-toggle label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      cursor: pointer;
+    }
+    .product-type-toggle input[type="radio"] { accent-color: var(--green); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary {
+      background: var(--white);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--bg); }
+
+    .input-hint {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    /* ---------- Scanner ---------- */
+    #reader {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    #reader video { border-radius: var(--radius); }
+    .scanner-controls { text-align: center; margin-top: 16px; }
+    .scanner-status {
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-top: 12px;
+    }
+    .barcode-input-fallback {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .barcode-manual {
+      display: flex;
+      gap: 8px;
+    }
+    .barcode-manual input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.92rem;
+      font-family: var(--font-body);
+    }
+    .barcode-manual input:focus { outline: none; border-color: var(--green); }
+
+    /* ---------- Loading ---------- */
+    .loading {
+      text-align: center;
+      padding: 40px;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---------- Results ---------- */
+    #results { display: none; }
+
+    .score-card {
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .score-circle-wrapper {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 16px;
+    }
+    .score-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .score-circle-inner {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .score-number {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .score-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .score-category {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .score-summary {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ---------- Product Info ---------- */
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+    }
+    .product-info img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: var(--white);
+      padding: 4px;
+    }
+    .product-info-text h3 { font-size: 1rem; font-weight: 600; }
+    .product-info-text p { font-size: 0.82rem; color: var(--text-light); }
+
+    /* ---------- Alerts ---------- */
+    .alerts-section { margin-bottom: 16px; }
+    .alert {
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .alert-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .alert-fssai {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      color: #991B1B;
+    }
+    .alert-family {
+      background: #FFF7ED;
+      border: 1px solid #FED7AA;
+      color: #9A3412;
+    }
+    .alert-info {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+      color: #166534;
+    }
+    .alert-title { font-weight: 600; }
+
+    /* ---------- Ingredient List ---------- */
+    .ingredient-list { list-style: none; }
+    .ingredient-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ingredient-item:last-child { border-bottom: none; }
+    .ingredient-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .dot-bad { background: var(--red); }
+    .dot-moderate { background: var(--orange); }
+    .dot-good { background: var(--green); }
+    .dot-neutral { background: #CBD5E1; }
+    .ingredient-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+    .ingredient-meta {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+    .ingredient-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-top: 4px;
+    }
+    .badge-fssai { background: #FEE2E2; color: #991B1B; }
+    .badge-condition { background: #FEF3C7; color: #92400E; }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      text-align: center;
+      padding: 32px 0;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+    .site-footer a { color: var(--green); text-decoration: underline; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      .conditions-grid { grid-template-columns: 1fr; }
+      .score-circle-wrapper { width: 130px; height: 130px; }
+      .score-circle { width: 130px; height: 130px; }
+      .score-circle-inner { width: 100px; height: 100px; }
+      .score-number { font-size: 2rem; }
+      .product-info { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 14px; }
+      .card { padding: 16px; }
+      .site-header { padding: 36px 0 28px; }
+      .tab { padding: 8px 14px; font-size: 0.82rem; }
+    }
+
+    /* ---------- Misc ---------- */
+    .hidden { display: none !important; }
+    .error-message {
+      text-align: center;
+      padding: 24px;
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+    .try-manual {
+      text-align: center;
+      margin-top: 12px;
+    }
+    .try-manual a {
+      color: var(--green);
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Header ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-badge">Powered by Open Food Facts + FSSAI Data</div>
+        <h1>NutriCheck India</h1>
+        <p>Know what's in your food and personal care products. Personalized health alerts for your family.</p>
+        <div class="disclaimer-badge">
+          <span>&#9432;</span>
+          For informational purposes only. Not medical advice.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Main Content ───────────────────────────────────── -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Family Profile -->
+      <div class="card" id="profileCard">
+        <div class="profile-toggle" id="profileToggle" onclick="toggleProfile()">
+          <div class="card-title" style="margin-bottom:0;">
+            <span>&#128106;</span> Family Health Profile
+          </div>
+          <span class="arrow">&#9660;</span>
+        </div>
+        <div id="activeChips" class="active-chips"></div>
+        <div class="profile-body" id="profileBody">
+          <p style="font-size:0.82rem;color:var(--text-light);margin-bottom:12px;">
+            Select health conditions relevant to your family. Alerts will be personalized to flag ingredients that may be concerning.
+            <strong>All data stays in your browser.</strong>
+          </p>
+          <div class="conditions-grid" id="conditionsGrid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Card -->
+      <div class="card">
+        <div class="tabs">
+          <div class="tab active" data-tab="text" onclick="switchTab('text')">Type Ingredients</div>
+          <div class="tab" data-tab="scan" onclick="switchTab('scan')">Scan Barcode</div>
+        </div>
+
+        <!-- Tab: Text Input -->
+        <div class="tab-content active" id="tab-text">
+          <textarea class="ingredient-input" id="ingredientInput"
+            placeholder="Paste or type the ingredient list from the product label...&#10;&#10;Example: Sugar, Wheat Flour (Maida), Palm Oil, Salt, Tartrazine (E102), Sodium Benzoate"></textarea>
+          <div class="product-type-toggle">
+            <label><input type="radio" name="productType" value="food" checked> Food / Beverage</label>
+            <label><input type="radio" name="productType" value="personal_care"> Personal Care / Cosmetic</label>
+          </div>
+          <button class="btn btn-primary" id="checkBtn" onclick="checkIngredients()">
+            Check Health Score
+          </button>
+          <p class="input-hint">Tip: Copy the full ingredient list from the product packaging.</p>
+        </div>
+
+        <!-- Tab: Barcode Scanner -->
+        <div class="tab-content" id="tab-scan">
+          <div id="reader"></div>
+          <div class="scanner-controls">
+            <button class="btn btn-primary" id="startScanBtn" onclick="startScanner()">
+              Start Camera Scanner
+            </button>
+            <button class="btn btn-secondary hidden" id="stopScanBtn" onclick="stopScanner()">
+              Stop Scanner
+            </button>
+          </div>
+          <p class="scanner-status" id="scanStatus">Point your camera at a product barcode</p>
+
+          <div class="barcode-input-fallback">
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:8px;">Or enter barcode number manually:</p>
+            <div class="barcode-manual">
+              <input type="text" id="barcodeInput" placeholder="e.g., 8901058851779" inputmode="numeric">
+              <button class="btn btn-primary" onclick="lookupBarcode()">Lookup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div class="loading hidden" id="loading">
+        <div class="spinner"></div>
+        <p>Analyzing ingredients...</p>
+      </div>
+
+      <!-- Results -->
+      <div id="results">
+        <!-- Score Card -->
+        <div class="card score-card" id="scoreCard">
+          <div class="score-circle-wrapper">
+            <div class="score-circle" id="scoreCircle">
+              <div class="score-circle-inner">
+                <div class="score-number" id="scoreNumber">--</div>
+                <div class="score-label">out of 100</div>
+              </div>
+            </div>
+          </div>
+          <div class="score-category" id="scoreCategory"></div>
+          <div class="score-summary" id="scoreSummary"></div>
+        </div>
+
+        <!-- Product Info (barcode only) -->
+        <div class="card hidden" id="productCard">
+          <div class="product-info">
+            <img id="productImage" src="" alt="Product">
+            <div class="product-info-text">
+              <h3 id="productName"></h3>
+              <p id="productBrand"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="card hidden" id="alertsCard">
+          <div class="card-title"><span>&#9888;</span> Alerts</div>
+          <div class="alerts-section" id="alertsList"></div>
+        </div>
+
+        <!-- Ingredient Breakdown -->
+        <div class="card" id="ingredientCard">
+          <div class="card-title"><span>&#128300;</span> Ingredient Breakdown</div>
+          <ul class="ingredient-list" id="ingredientList"></ul>
+        </div>
+
+        <!-- Actions -->
+        <div style="text-align:center;margin:20px 0;">
+          <button class="btn btn-secondary" onclick="resetApp()">Check Another Product</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ─── Footer ─────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <p style="margin-bottom:8px;"><strong>Disclaimer:</strong> NutriCheck India provides informational analysis only. This is not medical advice. Always consult your healthcare provider for dietary decisions.</p>
+      <p>Product data from <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>. Ingredient safety data based on published research and FSSAI regulations.</p>
+    </div>
+  </footer>
+
+  <!-- ─── Scripts ─────────────────────────────────────────── -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script>
+    // ── Config ──
+    const API_BASE = window.location.origin;
+    const $ = id => document.getElementById(id);
+    let html5QrCode = null;
+    let scannerRunning = false;
+
+    // ── Conditions data (fallback) ──
+    const DEFAULT_CONDITIONS = {
+      diabetes:             { label: 'Diabetes',                  description: 'Flags high-sugar, high-GI ingredients', icon: '' },
+      hypertension:         { label: 'High Blood Pressure',       description: 'Flags high-sodium ingredients', icon: '' },
+      heart_disease:        { label: 'Heart Disease',             description: 'Flags trans fats, saturated fats', icon: '' },
+      pregnancy:            { label: 'Pregnancy',                 description: 'Flags ingredients with developmental risks', icon: '' },
+      child_under_5:        { label: 'Child Under 5',             description: 'Flags artificial colors, sweeteners', icon: '' },
+      lactose_intolerance:  { label: 'Lactose Intolerance',       description: 'Flags dairy-derived ingredients', icon: '' },
+      gluten_sensitivity:   { label: 'Gluten Sensitivity / Celiac', description: 'Flags wheat and gluten ingredients', icon: '' },
+      nut_allergy:          { label: 'Nut Allergy',               description: 'Flags peanuts, tree nuts', icon: '' },
+      obesity:              { label: 'Weight Management',          description: 'Flags high-calorie, high-fat ingredients', icon: '' },
+      kidney_disease:       { label: 'Kidney Disease',            description: 'Flags high-sodium, high-phosphate ingredients', icon: '' },
+    };
+
+    let conditionsData = DEFAULT_CONDITIONS;
+    let selectedConditions = JSON.parse(localStorage.getItem('nutricheck_conditions') || '[]');
+
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Try to load conditions from API
+      try {
+        const resp = await fetch(`${API_BASE}/api/conditions`);
+        if (resp.ok) conditionsData = await resp.json();
+      } catch (e) { /* use defaults */ }
+
+      renderConditions();
+      renderChips();
+    });
+
+    // ── Profile ──
+    function toggleProfile() {
+      const toggle = $('profileToggle');
+      const body = $('profileBody');
+      toggle.classList.toggle('open');
+      body.classList.toggle('open');
+    }
+
+    function renderConditions() {
+      const grid = $('conditionsGrid');
+      grid.innerHTML = '';
+      for (const [key, cond] of Object.entries(conditionsData)) {
+        const isActive = selectedConditions.includes(key);
+        const div = document.createElement('div');
+        div.className = `condition-item${isActive ? ' active' : ''}`;
+        div.onclick = () => toggleCondition(key);
+        div.innerHTML = `
+          <input type="checkbox" ${isActive ? 'checked' : ''} tabindex="-1">
+          <div>
+            <div class="condition-label">${cond.label}</div>
+            <div class="condition-desc">${cond.description}</div>
+          </div>
+        `;
+        grid.appendChild(div);
+      }
+    }
+
+    function toggleCondition(key) {
+      const idx = selectedConditions.indexOf(key);
+      if (idx >= 0) selectedConditions.splice(idx, 1);
+      else selectedConditions.push(key);
+      localStorage.setItem('nutricheck_conditions', JSON.stringify(selectedConditions));
+      renderConditions();
+      renderChips();
+    }
+
+    function removeCondition(key) {
+      toggleCondition(key);
+    }
+
+    function renderChips() {
+      const container = $('activeChips');
+      if (selectedConditions.length === 0) {
+        container.innerHTML = '<span style="font-size:0.78rem;color:var(--text-light);">No health profiles set. Tap above to add.</span>';
+        return;
+      }
+      container.innerHTML = selectedConditions.map(key => {
+        const label = (conditionsData[key] || {}).label || key;
+        return `<span class="chip">${label}<span class="remove" onclick="event.stopPropagation();removeCondition('${key}')">&times;</span></span>`;
+      }).join('');
+    }
+
+    // ── Tabs ──
+    function switchTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+      $(`tab-${tab}`).classList.add('active');
+      if (tab !== 'scan' && scannerRunning) stopScanner();
+    }
+
+    // ── Product Type ──
+    function getProductType() {
+      return document.querySelector('input[name="productType"]:checked')?.value || 'food';
+    }
+
+    // ── Check Ingredients (text input) ──
+    async function checkIngredients() {
+      const text = $('ingredientInput').value.trim();
+      if (!text) {
+        $('ingredientInput').focus();
+        return;
+      }
+
+      showLoading();
+      try {
+        const resp = await fetch(`${API_BASE}/api/score`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ingredients: text,
+            product_type: getProductType(),
+            conditions: selectedConditions,
+          }),
+        });
+
+        if (!resp.ok) throw new Error('Scoring failed');
+        const data = await resp.json();
+        renderResults(data);
+      } catch (e) {
+        hideLoading();
+        showError('Could not analyze ingredients. Please check your connection and try again.');
+      }
+    }
+
+    // ── Barcode Scanner ──
+    async function startScanner() {
+      $('startScanBtn').classList.add('hidden');
+      $('stopScanBtn').classList.remove('hidden');
+      $('scanStatus').textContent = 'Starting camera...';
+
+      try {
+        html5QrCode = new Html5Qrcode('reader');
+        await html5QrCode.start(
+          { facingMode: 'environment' },
+          { fps: 10, qrbox: { width: 250, height: 150 }, aspectRatio: 1.5 },
+          onScanSuccess,
+          () => {} // ignore scan failures (no match yet)
+        );
+        scannerRunning = true;
+        $('scanStatus').textContent = 'Scanning... Point at a barcode';
+      } catch (err) {
+        $('startScanBtn').classList.remove('hidden');
+        $('stopScanBtn').classList.add('hidden');
+        $('scanStatus').textContent = 'Camera not available. Use manual barcode entry below.';
+      }
+    }
+
+    async function stopScanner() {
+      if (html5QrCode && scannerRunning) {
+        try { await html5QrCode.stop(); } catch (e) {}
+        scannerRunning = false;
+      }
+      $('startScanBtn').classList.remove('hidden');
+      $('stopScanBtn').classList.add('hidden');
+      $('scanStatus').textContent = 'Scanner stopped';
+    }
+
+    async function onScanSuccess(barcode) {
+      await stopScanner();
+      $('scanStatus').textContent = `Barcode found: ${barcode}`;
+      await fetchProduct(barcode);
+    }
+
+    async function lookupBarcode() {
+      const barcode = $('barcodeInput').value.trim();
+      if (!barcode) {
+        $('barcodeInput').focus();
+        return;
+      }
+      await fetchProduct(barcode);
+    }
+
+    async function fetchProduct(barcode) {
+      showLoading();
+      try {
+        const condParam = selectedConditions.length ? `?conditions=${selectedConditions.join(',')}` : '';
+        const resp = await fetch(`${API_BASE}/api/product/${barcode}${condParam}`);
+        const data = await resp.json();
+
+        if (!data.found) {
+          hideLoading();
+          showError(data.error || 'Product not found in database.');
+          return;
+        }
+
+        if (data.score === null || data.ingredients_available === false) {
+          hideLoading();
+          showProductOnly(data);
+          return;
+        }
+
+        renderResults(data);
+      } catch (e) {
+        hideLoading();
+        showError('Could not look up product. Please try again or enter ingredients manually.');
+      }
+    }
+
+    // ── Rendering ──
+    function showLoading() {
+      $('loading').classList.remove('hidden');
+      $('results').style.display = 'none';
+    }
+
+    function hideLoading() {
+      $('loading').classList.add('hidden');
+    }
+
+    function showError(msg) {
+      $('results').style.display = 'block';
+      $('scoreCard').classList.add('hidden');
+      $('productCard').classList.add('hidden');
+      $('alertsCard').classList.add('hidden');
+      $('ingredientCard').innerHTML = `
+        <div class="error-message">${msg}</div>
+        <div class="try-manual"><a onclick="switchTab('text')">Try entering ingredients manually</a></div>
+      `;
+      $('ingredientCard').classList.remove('hidden');
+    }
+
+    function showProductOnly(data) {
+      $('results').style.display = 'block';
+      $('scoreCard').classList.add('hidden');
+      $('alertsCard').classList.add('hidden');
+
+      if (data.product) {
+        renderProductInfo(data.product);
+        $('productCard').classList.remove('hidden');
+      }
+
+      $('ingredientCard').innerHTML = `
+        <div class="card-title"><span>&#128300;</span> Ingredient Breakdown</div>
+        <div class="error-message">${data.message || 'Ingredients not available for this product.'}</div>
+        <div class="try-manual"><a onclick="prefillIngredients()">Enter ingredients manually for this product</a></div>
+      `;
+    }
+
+    function prefillIngredients() {
+      switchTab('text');
+      $('ingredientInput').focus();
+    }
+
+    function renderResults(data) {
+      hideLoading();
+      $('results').style.display = 'block';
+      $('scoreCard').classList.remove('hidden');
+      $('ingredientCard').classList.remove('hidden');
+
+      // Score circle
+      const score = data.score;
+      const color = data.color;
+      const pct = score / 100;
+      $('scoreCircle').style.background = `conic-gradient(${color} ${pct * 360}deg, #E2E8F0 ${pct * 360}deg)`;
+      $('scoreNumber').textContent = score;
+      $('scoreNumber').style.color = color;
+      $('scoreCategory').textContent = data.category;
+      $('scoreCategory').style.color = color;
+
+      const matched = data.matched_ingredients || 0;
+      const total = data.total_ingredients || 0;
+      const unmatched = data.unmatched_ingredients || 0;
+      let summary = `${matched} of ${total} ingredients recognized`;
+      if (unmatched > 0) summary += ` (${unmatched} not in database)`;
+      $('scoreSummary').textContent = summary;
+
+      // Product info
+      if (data.product) {
+        renderProductInfo(data.product);
+        $('productCard').classList.remove('hidden');
+      } else {
+        $('productCard').classList.add('hidden');
+      }
+
+      // Alerts
+      const fssaiAlerts = data.fssai_alerts || [];
+      const familyAlerts = data.family_alerts || [];
+      if (fssaiAlerts.length > 0 || familyAlerts.length > 0) {
+        $('alertsCard').classList.remove('hidden');
+        let alertsHtml = '<div class="card-title"><span>&#9888;</span> Alerts</div>';
+        fssaiAlerts.forEach(a => {
+          alertsHtml += `<div class="alert alert-fssai"><span class="alert-icon">&#127470;&#127475;</span><div><span class="alert-title">FSSAI Alert:</span> ${escapeHtml(a)}</div></div>`;
+        });
+        familyAlerts.forEach(a => {
+          const condLabel = (conditionsData[a.condition] || {}).label || a.condition;
+          alertsHtml += `<div class="alert alert-family"><span class="alert-icon">&#9888;</span><div><span class="alert-title">For ${escapeHtml(condLabel)}:</span> ${escapeHtml(a.ingredient)} — ${escapeHtml(a.warning)}</div></div>`;
+        });
+        $('alertsCard').innerHTML = alertsHtml;
+      } else {
+        $('alertsCard').classList.add('hidden');
+      }
+
+      // Ingredients list
+      const ingredients = data.ingredients || [];
+      let listHtml = '<div class="card-title"><span>&#128300;</span> Ingredient Breakdown</div><ul class="ingredient-list">';
+      ingredients.forEach(ing => {
+        const dotClass = ing.severity === 'bad' ? 'dot-bad'
+          : ing.severity === 'good' ? 'dot-good'
+          : ing.severity === 'moderate' ? 'dot-moderate'
+          : 'dot-neutral';
+
+        let badges = '';
+        if (ing.fssai_status) {
+          const fLabel = ing.fssai_status === 'banned' ? 'FSSAI BANNED' : 'FSSAI RESTRICTED';
+          badges += `<span class="ingredient-badge badge-fssai">${fLabel}</span> `;
+        }
+        if (ing.condition_alerts) {
+          ing.condition_alerts.forEach(ca => {
+            const cLabel = (conditionsData[ca.condition] || {}).label || ca.condition;
+            badges += `<span class="ingredient-badge badge-condition">${escapeHtml(cLabel)}</span> `;
+          });
+        }
+
+        listHtml += `
+          <li class="ingredient-item">
+            <div class="ingredient-dot ${dotClass}"></div>
+            <div>
+              <div class="ingredient-name">${escapeHtml(ing.label || ing.name)}</div>
+              ${ing.description ? `<div class="ingredient-meta">${escapeHtml(ing.description)}</div>` : ''}
+              ${ing.score ? `<div class="ingredient-meta">${ing.score > 0 ? '+' : ''}${ing.score} points</div>` : ''}
+              ${badges ? `<div style="margin-top:4px;">${badges}</div>` : ''}
+            </div>
+          </li>`;
+      });
+      listHtml += '</ul>';
+      $('ingredientCard').innerHTML = listHtml;
+
+      // Scroll to results
+      $('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function renderProductInfo(product) {
+      if (product.image_url) {
+        $('productImage').src = product.image_url;
+        $('productImage').style.display = 'block';
+      } else {
+        $('productImage').style.display = 'none';
+      }
+      $('productName').textContent = product.name || 'Unknown Product';
+      $('productBrand').textContent = product.brand || '';
+    }
+
+    function resetApp() {
+      $('results').style.display = 'none';
+      $('ingredientInput').value = '';
+      $('barcodeInput').value = '';
+      $('scoreCard').classList.remove('hidden');
+      $('ingredientCard').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>

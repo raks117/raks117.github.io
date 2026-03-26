@@ -1,0 +1,24 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "SK Plastic Works (Static Frontend)",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4000"],
+      "port": 4000
+    },
+    {
+      "name": "Flask Backend API",
+      "runtimeExecutable": "backend/.venv/bin/python",
+      "runtimeArgs": ["backend/app.py"],
+      "port": 5000
+    }
+  ,{
+      "name": "finance-dashboard",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "/Users/viveksharma/finance-dashboard", "run", "dev"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
